@@ -1,5 +1,6 @@
 import efinance as ef
 import pandas as pd
+from file_processing import makedir
 
 
 # use efinance to get data
@@ -49,7 +50,7 @@ class Get_data:
         return df
 
 
-path = "./"
+path = makedir("./data/")
 index_code = '000300'
 index_name = 'CSI300'
 get_data = Get_data(path, end_date='20230512')
