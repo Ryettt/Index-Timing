@@ -121,23 +121,19 @@ bt = backtest()
 # evaluation_all.to_csv(outcome_path + signal.name + ".csv")
 
 
-#original change
+# original change
 indicator = pd.read_csv(path + index_code + ".rolling." + str(window_n) + "_" + str(window_m) + ".QRS.csv",
                         index_col=0)
 
 signal = bt.get_signal(indicator, threshold, start_time=start_time, end_time=end_time)
-construct_nav = bt.get_c_t_nav_compare_plot(return_series, signal)
 evaluation_all = bt.get_evaluation(return_series, signal, signal.name)
 evaluation_all.to_csv(outcome_path + signal.name + ".csv")
 
-
-#final change
+# final change
 indicator = pd.read_csv(path + index_code + ".rolling." + str(window_n) + "_" + str(window_m) + ".QRS_update.csv",
                         index_col=0)
 
 signal = bt.get_signal(indicator, threshold, start_time=start_time, end_time=end_time)
-signal.name='QSR_update'
-construct_nav = bt.get_c_t_nav_compare_plot(return_series, signal)
+signal.name = 'QSR_update'
 evaluation_all = bt.get_evaluation(return_series, signal, signal.name)
 evaluation_all.to_csv(outcome_path + signal.name + ".csv")
-
